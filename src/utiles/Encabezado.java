@@ -34,10 +34,10 @@ public class Encabezado {
      * @return devuelve un objeto de tipo Encabezado vacio.
      */
     public Encabezado() {
-        ProgramName = null;
-        DevName = null;
-        Date = null;
-        Description = null; 
+        ProgramName = "";
+        DevName = "";
+        Date = "";
+        Description = ""; 
     }
 
 
