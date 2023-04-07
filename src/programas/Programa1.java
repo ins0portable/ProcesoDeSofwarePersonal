@@ -36,8 +36,9 @@ public class Programa1{
                     encabezado.setDescription(linea);
                 }
             }
+            lector.close();
             
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         programname = encabezado.getProgramName();
@@ -101,7 +102,7 @@ public class Programa1{
             String descripcion = "/*Description: "+description+"*/";
             encabezado.setDescription(descripcion);
         }
-
+        lectura.close();
     }
 
     private String completarEncabezado(){
