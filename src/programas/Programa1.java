@@ -10,7 +10,7 @@ import java.io.FileWriter;
 
 public class Programa1{
     //TODO: Comentar las secciones logicas del codigo
-    private Encabezado encabezado;
+    private Encabezado encabezado = new Encabezado();
     private String RutaAbsoluta;
 
     private boolean analizarEncabezado(String rutaAbsoluta){
@@ -44,8 +44,8 @@ public class Programa1{
         devname = encabezado.getDevName();
         date = encabezado.getDate();
         description = encabezado.getDescription();
-        if(programname != null && devname != null &&
-            date != null && description != null ){
+        if(programname != "" && devname != "" &&
+            date != "" && description != "" ){
                 return true;
             } else {
                 return false;
@@ -59,13 +59,13 @@ public class Programa1{
         String date = encabezado.getDate();
         String description = encabezado.getDescription();
 
-        if(programname == null){
+        if(programname == ""){
            camposFaltantes.append("Falta el nombre del programa.\n");
-        } if (devname == null){
+        } if (devname == ""){
             camposFaltantes.append("Falta el nombre del programadoe.\n");
-        } if (date == null){
+        } if (date == ""){
             camposFaltantes.append("Falta la fecha de desarrollo.\n");
-        } if (description == null){
+        } if (description == ""){
             camposFaltantes.append("Falta la descripcion del programa.\n");
         }
         return camposFaltantes.toString();
@@ -78,24 +78,24 @@ public class Programa1{
         String date = encabezado.getDate();
         String description = encabezado.getDescription();
 
-        if(programname == null){
+        if(programname == ""){
           System.out.println("Introduce el nombre del programa: ");
           programname = lectura.nextLine();
           String nombrePrograma = "/*Program Name: ";
           nombrePrograma += programname + "*/";
           encabezado.setProgramName(nombrePrograma);
-        } if (devname == null){
+        } if (devname == ""){
             System.out.println("Introduce el nombre del programador: ");
             devname = lectura.nextLine();
             String developerName = "/*Developer Name: ";
             developerName += devname + "*/";
             encabezado.setDevName(developerName);
-        } if (date == null){
+        } if (date == ""){
             System.out.println("Introduce la fecha de dearrollo: ");
             date = lectura.nextLine();
             String fecha = "/*Date: " + date + "*/";
             encabezado.setDate(fecha);
-        } if (description == null){
+        } if (description == ""){
             System.out.println("Introduce una decripcion para el programa: ");
             description = lectura.nextLine();
             String descripcion = "/*Description: "+description+"*/";
@@ -129,7 +129,7 @@ public class Programa1{
             //Se obtiene el contenido restante
             String linea;
             StringBuilder contenido = new StringBuilder();
-            while ((linea = br.readLine()) != null ){
+            while ((linea = br.readLine()) != "" ){
                 contenido.append(linea+"\n");
             }
 
@@ -139,7 +139,7 @@ public class Programa1{
             return contenido.toString();
         } catch (Exception e) {
            e.printStackTrace();
-           return null;
+           return "";
         }
     }
 
@@ -171,7 +171,7 @@ public class Programa1{
         return("Error durante la creacion.\n");
     }
 
-    public String operador(String rutaAbsoluta){
+    public String operadorDeClase(String rutaAbsoluta){
         // Se agrega la ruta absoluta dada por el usuario.
         RutaAbsoluta = rutaAbsoluta;
         // Se analiza el encabezado
