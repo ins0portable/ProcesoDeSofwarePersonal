@@ -26,13 +26,13 @@ public class Programa1{
             // Se lee linea por linea el archivo
             while (lector.hasNextLine()){
                 String linea = lector.nextLine();
-                if (linea.contains("/* Program Name:")){
+                if (linea.contains("/* Program Name:") && (linea.length() > 19)){
                     encabezado.setProgramName(linea);
-                } else if (linea.contains("/* Dev Name:")){
+                } else if (linea.contains("/* Dev Name:") && (linea.length() > 15)){
                     encabezado.setDevName(linea);
-                } else if(linea.contains("/* Date: ")){
+                } else if(linea.contains("/* Date: ") && (linea.length() > 11)){
                     encabezado.setDate(linea);
-                } else if (linea.contains("/* Description: ")){
+                } else if (linea.contains("/* Description: ") && (linea.length() > 18)){
                     encabezado.setDescription(linea);
                 }
             }
@@ -63,7 +63,7 @@ public class Programa1{
         if(programname == ""){
            camposFaltantes.append("Falta el nombre del programa.\n");
         } if (devname == ""){
-            camposFaltantes.append("Falta el nombre del programadoe.\n");
+            camposFaltantes.append("Falta el nombre del programador.\n");
         } if (date == ""){
             camposFaltantes.append("Falta la fecha de desarrollo.\n");
         } if (description == ""){
