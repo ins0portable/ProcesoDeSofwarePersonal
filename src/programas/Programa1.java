@@ -107,12 +107,18 @@ public class Programa1{
 
     private String completarEncabezado(){
         StringBuilder encabezadoCorregido = new StringBuilder();
-        encabezadoCorregido.append("/*************************************************************************************/\n");
+        encabezadoCorregido.append("/*************************************************************************************/");
+        encabezadoCorregido.append("\n");
         encabezadoCorregido.append(encabezado.getProgramName());
+        encabezadoCorregido.append("\n");
         encabezadoCorregido.append(encabezado.getDevName());
+        encabezadoCorregido.append("\n");
         encabezadoCorregido.append(encabezado.getDate());
+        encabezadoCorregido.append("\n");
         encabezadoCorregido.append(encabezado.getDescription());
+        encabezadoCorregido.append("\n");
         encabezadoCorregido.append("/*************************************************************************************/\n");
+        encabezadoCorregido.append("\n");
         return encabezadoCorregido.toString();
     }
 
@@ -123,24 +129,24 @@ public class Programa1{
             BufferedReader br = new BufferedReader(fr);
 
             //Se omite el encabezado
-            for(int i =0; i <6; i++){
+            for(int i =0; i <7; i++){
                 br.readLine();
             }
 
             //Se obtiene el contenido restante
-            String linea;
+            String linea = br.readLine();
             StringBuilder contenido = new StringBuilder();
-            while ((linea = br.readLine()) != "" ){
-                contenido.append(linea+"\n");
+            while (linea != null) {
+                contenido.append(linea).append("\n");
+                linea = br.readLine();
             }
-
             // se cierra el bufferedReader y fileReader
             br.close();
             fr.close();
             return contenido.toString();
         } catch (Exception e) {
-           e.printStackTrace();
-           return "";
+            e.printStackTrace();
+            return "";
         }
     }
 
