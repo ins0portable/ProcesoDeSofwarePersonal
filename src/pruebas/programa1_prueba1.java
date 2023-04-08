@@ -8,6 +8,6 @@
 
 package pruebas;
 
-public class prueba1 {
+public class programa1_prueba1 {
     
 }
